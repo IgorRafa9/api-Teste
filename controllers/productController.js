@@ -30,16 +30,8 @@ const listarProd = async (req, res) => {
 
 }
 
-//3. Listar cada produto
-const listarUmProd = async (req, res) => {
 
-  let id = req.params.id
-  let produto = await Product.findOne({where: {id : id}})
-  res.status(200).send(produto)
-
-}
-
-//4. Atualizar produto
+//3. Atualizar produto
 const atualizarProd = async (req, res) => {
 
   let id = req.params.id
@@ -50,7 +42,7 @@ const atualizarProd = async (req, res) => {
 
 }
 
-//5. Deletar produto por id
+//4. Deletar produto por id
 const deletarProd = async (req, res) => {
 
   let id = req.params.id  
@@ -61,20 +53,10 @@ const deletarProd = async (req, res) => {
 
 }
 
-//6. Publicar produto
-const publicarProd = async (req, res) => {
-
-  const produtos = await Product.FindAll({where: {publicacao: true}})
-
-  res.status(200).send(produtos)
-
-}
 
 module.exports = {
   addProd,
   listarProd,
-  listarUmProd,
   atualizarProd,
-  deletarProd,
-  publicarProd
+  deletarProd
 }
